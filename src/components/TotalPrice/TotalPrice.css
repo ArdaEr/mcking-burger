@@ -1,0 +1,33 @@
+.ingredientsBlock{
+    width: 100%;
+    background-color: #cf8f2e;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    box-shadow: 0 2px 1px #ccc;
+    margin: auto;
+    padding: 10px 0;
+  }
+  .ingredientsBlock p{
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+  .ingrBtns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+  }
+  .ingrBtn{
+    border: 0;
+    background-color: #c17116;
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    display: table;
+    width: 95px;
+  }
+  
