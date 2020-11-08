@@ -1,57 +1,32 @@
-import React, {useState} from 'react';
-import './App.css';
-import {Hamburger, TotalPrice, ItemList} from "./components";
-import Header from './components/Header/Header';
+import React, { useState } from 'react';
+import './App.css'
 
-import ingrediends from "./data";
+import SessionContext from './components/Context/SessionContext';
+import Router from './Router';
 
-
-const App = () => {
-    const [ingredients, setIngredients] = useState([]);
-
-   /* malzemeEkle(malzeme){
-        this.setState({
-            ingredients: [...this.state.ingredients].concat([
-                {...malzeme, displayId: Math.random()}
-            ])
-        })
-    }*/
-
-const addIngredient = (product) => {
-    setIngredients([...ingredients, {...product,  displayId: Math.random()}
-    ]);
-
+function App() {
+  const [isAuthenticated, setAuthenticated] = useState(false);
+  return (
+    <SessionContext.Provider
+    value = {{
+      isAuthenticated,
+      setAuthenticated,
+    }}
+    >
+    <div className="App">
+     
+      <header className="App-header">
+        <div className="App-container">
+          <Router />
+        </div>
+      
+   
+      </header>
+    </div>
+    </SessionContext.Provider>
+  );
 };
-const removeIngredient = (product) => {
-    const selectedMalzeme = ingredients.find(
-        (ingredient) => ingredient.name === product.name
-    );
-    
-    setIngredients(
-        ingredients.filter(
-            (ingredient) => ingredient.displayId !== selectedMalzeme.displayId)
-
-    );
-};
-const hesapla = () => {
-    let total = 4;
-    ingredients.forEach((item) => (total += item.price));
-    return total.toFixed(2);
-};
-return (
-    <>
-        <Header />
-        <Hamburger ingredients={ingredients} />
-        <TotalPrice total = {() => hesapla()} />
-        <ItemList
-        items = {ingrediends}
-        addIngredient = {(i)=> addIngredient(i)}
-        removeIngredient= {(i) => removeIngredient(i)}
-        selectedIngredients= {ingredients} />
-    </>
-);
-};
-
+  export default App;
 
 /*class App extends React.Component {
     constructor(props){
@@ -113,4 +88,3 @@ return (
         );
     }
 }*/
-export default App;

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Item}  from "..";
 
+
 function ItemList(props) {
     return (
         <div>
@@ -17,7 +18,9 @@ function ItemList(props) {
                                 removeIngredient={props.removeIngredient}
                                 butonGoster={icindeVarMi}
                                 sayi={icindeKacTaneVar.length}
+                            
                     />
+                  
                 })
             }
         </div>
