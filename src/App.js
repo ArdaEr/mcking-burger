@@ -1,29 +1,31 @@
 import React, { useState } from 'react';
 import './App.css'
+import Header from './components/Header/Header';
+import Layout from './Layout';
+import Content from './components/Content/Content';
+import Footer from './components/Footer/Footer';
 
-import SessionContext from './components/Context/SessionContext';
-import Router from './Router';
+
 
 function App() {
-  const [isAuthenticated, setAuthenticated] = useState(false);
+  
   return (
-    <SessionContext.Provider
-    value = {{
-      isAuthenticated,
-      setAuthenticated,
-    }}
-    >
+  
     <div className="App">
      
       <header className="App-header">
         <div className="App-container">
-          <Router />
+        <Layout>
+        <Header />
+        <Content />
+        <Footer />
+        </Layout>
         </div>
       
    
       </header>
     </div>
-    </SessionContext.Provider>
+ 
   );
 };
   export default App;

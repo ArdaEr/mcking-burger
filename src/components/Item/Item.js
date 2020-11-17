@@ -10,7 +10,12 @@ function Item(props) {
                 {props.name}
             </div>
             <div>
-                {props.sayi}
+                ({props.price}$)
+                 
+                Miktar: {props.sayi}
+            </div>
+            <div>
+               
             </div>
             {
                 props.butonGoster ? <button className="Less" onClick={() => {

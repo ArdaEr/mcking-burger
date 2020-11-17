@@ -2,15 +2,14 @@ import React, {useState, useContext} from 'react';
 import './McKing.css';
 import {Hamburger, TotalPrice, ItemList} from "../components";
 import Header from '../components/Header/Header';
-import SessionContext from '../components/Context/SessionContext';
+import SessionContext from '../components/Content/Content';
 import Button from '../components/Button/Button';
-
+import { Link } from 'react-router-dom';
 
 import ingrediends from "../data";
 
 
 const McKing = () => {
-    const { setAuthenticated } = useContext(SessionContext);
     const [ingredients, setIngredients] = useState([]);
 
    /* malzemeEkle(malzeme){
@@ -37,10 +36,6 @@ const removeIngredient = (product) => {
 
     );
 };
-const handClick = (event) => {
-    event.preventDefault();
-    setAuthenticated(true);
-};
 
 const hesapla = () => {
     let total = 4;
@@ -49,7 +44,7 @@ const hesapla = () => {
 };
 return (
     <>
-        <Header />
+        
         <Hamburger ingredients={ingredients} />
         <TotalPrice total = {() => hesapla()} />
         <ItemList
@@ -58,7 +53,7 @@ return (
         removeIngredient= {(i) => removeIngredient(i)}
         selectedIngredients= {ingredients} />
         <div className='ingredientsBlock'>
-        <Button onClick = {handClick} className='ingrBtn'>Order</Button>
+        <Link to="/order"><Button className='ingrBtn' type="button">Order</Button></Link>
         </div>
         
     </>
